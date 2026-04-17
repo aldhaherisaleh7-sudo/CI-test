@@ -11,5 +11,5 @@ jobs:
       - name: checkout repo
         uses: actions/checkout@v6.0.2
 
-      - name: testing 
-        run: echo "test is running..."
+      - name: testing....
+        run: echo "php artisan test --parallel"
