@@ -6,4 +6,5 @@ it('should say second test 10 times', function() {
         echo "second test";
 	$number--;
    }
+  expect(true)->toBe(true);
 });

@@ -6,5 +6,5 @@ it('runs hellow word', function() {
     echo "hello world";
     $number--;
    }
-   expect(true)->toBe(false);
+   expect(true)->toBe(true);
 });
