@@ -2,8 +2,8 @@ on:
   push:
       branches:
          - main
-      path:
-         - "app\*"
+      paths:
+         - "app/*"
   pull_request:
       branches:
          - main
@@ -16,4 +16,5 @@ jobs:
 
          - name: testing
            run: php artisan test --parallel
+
 
