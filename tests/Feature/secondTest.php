@@ -5,6 +5,5 @@ it('should say second test 10 times', function() {
    while($number > 0){
         echo "second test";
 	$number--;
-	sleep(5);
    }
 });

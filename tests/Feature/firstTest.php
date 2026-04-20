@@ -5,6 +5,6 @@ it('runs hellow word', function() {
    while($number > 0){
     echo "hello world";
     $number--;
-    sleep(2);
    }
+   expect(true)->toBe(false);
 });
