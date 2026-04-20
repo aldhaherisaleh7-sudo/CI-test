@@ -1,25 +1,28 @@
 on:
   push:
-      branches:
-         - main
-      paths:
-         - "app/*"
+    branches:
+      - main
+    paths:
+      - "app/*"
   pull_request:
-      branches:
-         - main
+    branches:
+      - main
+
 jobs:
   testings:
-      runs-on: ubuntu-latest
-      steps:
-         - name: Setup PHP
-	   uses: shivammathur/setup-php@v2
-             with:
-               php-version: 8.4
+    runs-on: ubuntu-latest
 
-         - name: checkout
-           uses: actions/checkout@v6.0.2
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-         - name: testing
-           run: php artisan test --parallel
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.4
 
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist --optimize-autoloader
 
+      - name: Run tests
+        run: php artisan test --parallel
