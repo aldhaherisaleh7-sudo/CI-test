@@ -1,0 +1,12 @@
+name: "daily tasks"
+
+on: 
+  schedule: 
+    - cron ***** #every min
+
+jobs: 
+  daily-task:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "print message" 
+        run: echo "Running daily tasks..."
