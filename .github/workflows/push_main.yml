@@ -1,0 +1,19 @@
+on:
+  push:
+      branches:
+         - main
+      path:
+         - "app\*"
+  pull_request:
+      branches:
+         - main
+jobs:
+  testings:
+      runs-on: ubuntu-latest
+      steps:
+         - name: checkout
+           uses: actions/checkout@v6.0.2
+
+         - name: testing
+           run: php artisan test --parallel
+
