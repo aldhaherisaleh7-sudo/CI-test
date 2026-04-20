@@ -2,8 +2,8 @@ on:
   push:
       branches:
          - main
-      path:
-         - "app\*"
+      paths:
+         - "app/*"
   pull_request:
       branches:
          - main
