@@ -1,0 +1,39 @@
+name: testing workflow 
+
+on: 
+    push:
+        branches: 
+            - dev
+jobs:  
+
+    testing:  
+        runs-on: ubuntu-latest 
+
+        services:
+            mysql:
+                image: mysql:8.0
+                env:
+                    MYSQL_DATABASE: blog_test
+                    MYSQL_ROOT_PASSWORD: root
+                    MYSQL_USER: saleh
+                    MYSQL_PASSWORD: password
+                ports:
+                    - 3306:3306
+                options: >-
+                    --health-cmd="mysqladmin ping -h 127.0.0.1 -proot"
+                    --health-interval=10s
+                    --health-timeout=5s
+                    --health-retries=5
+
+        steps:
+         - name: checkout
+           uses: actions/checkout@v6.0.2 
+
+         - name: setup 
+           uses:  shivammathur/setup-php@v2
+             
+         - name: install dependencies
+           run: composer install
+              
+         - name: run test
+           run: php artisan test
